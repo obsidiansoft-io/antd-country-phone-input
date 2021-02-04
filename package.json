@@ -13,7 +13,14 @@
     "build:lib": "rimraf lib && tsc --module commonjs --outDir lib --noEmit false",
     "prepare": "npm-run-all --parallel build:*"
   },
-  "repository": "git@github.com:boyuai/antd-country-phone-input.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obsidiansoft-io/antd-country-phone-input.git"
+  },
+  "bugs": {
+    "url": "https://github.com/obsidiansoft-io/antd-country-phone-input/issues"
+  },
+  "homepage": "https://github.com/obsidiansoft-io/antd-country-phone-input#readme",
   "keywords": [
     "antd",
     "ant-design",

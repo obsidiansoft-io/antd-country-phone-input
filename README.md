@@ -9,7 +9,7 @@ Currently only support Chinese.
 ## Installation
 
 ```
-npm i antd-country-phone-input
+npm i @obsidiansoft/antd-country-phone-input
 ```
 
 ## [Usage](src/App.tsx)

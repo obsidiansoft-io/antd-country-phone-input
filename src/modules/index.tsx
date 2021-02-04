@@ -102,7 +102,7 @@ function CountryPhoneInput({
             };
             return (
               <Select.Option {...props.optionProps} {...fix}>
-                {item.emoji} {item.zh} {item.phoneCode}
+                {item.emoji} {item.phoneCode}
               </Select.Option>
             );
           })}

@@ -5,10 +5,12 @@ import { OptionProps, SelectProps } from 'antd/lib/select';
 import countries, { Country } from './source';
 
 interface PropTypes extends Omit<InputProps, 'value' | 'onChange'> {
+  defaultCountry?: string;
   onChange?: (value: CountryPhoneInputValue) => void;
-  value?: CountryPhoneInputValue;
-  selectProps?: SelectProps<any>;
+  onlyCountries?: string[];
   optionProps?: OptionProps;
+  selectProps?: SelectProps<any>;
+  value?: CountryPhoneInputValue;
 }
 
 export type CountryPhoneInputValue = {
@@ -18,16 +20,18 @@ export type CountryPhoneInputValue = {
 };
 
 function CountryPhoneInput({
+  defaultCountry = 'CN',
   onChange,
-  value,
+  onlyCountries = [],
   selectProps,
+  value,
   ...props
 }: PropTypes) {
-  const defaultCountry: Country | undefined = useMemo(() => {
-    return countries.find((c) => c.short === 'CN');
+  const selectCountry: Country | undefined = useMemo(() => {
+    return countries.find((c) => c.short === defaultCountry);
   }, []);
 
-  const [country, setCountry] = useState<Country | undefined>(defaultCountry);
+  const [country, setCountry] = useState<Country | undefined>(selectCountry);
   const [phone, setPhone] = useState<string | undefined>();
 
   useEffect(() => {
@@ -74,6 +78,11 @@ function CountryPhoneInput({
     [setPhone, country, triggerChange]
   );
 
+  let filters = countries;
+  if (onlyCountries?.length) {
+    filters = countries.filter((a) => onlyCountries.some((b) => b === a.short));
+  }
+
   return (
     <Input
       prefix={
@@ -85,7 +94,7 @@ function CountryPhoneInput({
           value={country && country.short}
           onChange={handleCountryChange}
         >
-          {countries.map((item) => {
+          {filters.map((item) => {
             const fix = {
               key: item.short,
               value: item.short,

@@ -20,7 +20,11 @@ const App = () => {
       style={{ width: 400, height: 300, margin: 40 }}
     >
       <Form.Item name="phone">
-        <CountryPhoneInput className="country-phone-input" />
+        <CountryPhoneInput
+          defaultCountry="MX"
+          onlyCountries={['MX', 'HK', 'CN']}
+          className="country-phone-input"
+        />
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit">

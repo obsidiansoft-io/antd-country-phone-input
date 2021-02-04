@@ -8,6 +8,7 @@
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test",
+    "lint": "eslint src/**/*.tsx",
     "build:es": "rimraf es && tsc --module es6 --outDir es --noEmit false",
     "build:lib": "rimraf lib && tsc --module commonjs --outDir lib --noEmit false",
     "prepare": "npm-run-all --parallel build:*"

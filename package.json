@@ -1,5 +1,5 @@
 {
-  "name": "antd-country-phone-input",
+  "name": "@obsidiansoft/antd-country-phone-input",
   "version": "3.0.2",
   "description": "Country phone input component as standard Ant.Design form item",
   "main": "lib/index.js",
@@ -20,7 +20,7 @@
     "country-code",
     "phone"
   ],
-  "author": "wangsijie <i@sijie.wang>",
+  "author": "Beto Salas <betinho8901@gmail.com>",
   "license": "MIT",
   "private": false,
   "devDependencies": {
